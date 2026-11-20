@@ -1,0 +1,133 @@
+NEXLYTICS Phase 3 validation log
+================================
+
+Raw source files were read only. Outputs were validated in a staging directory before publication. Large tables were read in chunks of 100,000 rows.
+Row content round-trip and duplicate checks use Pandas 64-bit row hashes; theoretical hash collisions are possible. `TRANS_TIME` is intentionally stored as text despite its Phase 2 numeric inference, and is additionally compared as raw text against its source column.
+
+PASS: all_eight_expected_tables_accounted_for
+[campaign_desc.csv -> campaign_desc_cleaned.csv]
+Source rows: 30; cleaned rows: 30; removed exact rows: 0.
+Source duplicate rows (Phase 2): 0; cleaned duplicate rows: 0.
+PASS: file_readable_and_expected_columns
+PASS: source_rows_match_phase2_profile
+PASS: source_duplicates_reconciled_to_removed_and_remaining
+PASS: cleaned_row_count_reconciled
+PASS: cleaned_exact_duplicates_as_expected
+PASS: missing_values_match_only_blank_normalization
+PASS: no_whitespace_remains_in_text_fields
+PASS: dtypes_preserved
+PASS: identifier_value_frequencies_preserved
+PASS: canonical_rows_round_trip_through_csv
+
+[campaign_table.csv -> campaign_table_cleaned.csv]
+Source rows: 7,208; cleaned rows: 7,208; removed exact rows: 0.
+Source duplicate rows (Phase 2): 0; cleaned duplicate rows: 0.
+PASS: file_readable_and_expected_columns
+PASS: source_rows_match_phase2_profile
+PASS: source_duplicates_reconciled_to_removed_and_remaining
+PASS: cleaned_row_count_reconciled
+PASS: cleaned_exact_duplicates_as_expected
+PASS: missing_values_match_only_blank_normalization
+PASS: no_whitespace_remains_in_text_fields
+PASS: dtypes_preserved
+PASS: identifier_value_frequencies_preserved
+PASS: canonical_rows_round_trip_through_csv
+
+[causal_data.csv -> causal_data_cleaned.csv]
+Source rows: 36,786,524; cleaned rows: 36,786,524; removed exact rows: 0.
+Source duplicate rows (Phase 2): 0; cleaned duplicate rows: 0.
+PASS: file_readable_and_expected_columns
+PASS: source_rows_match_phase2_profile
+PASS: source_duplicates_reconciled_to_removed_and_remaining
+PASS: cleaned_row_count_reconciled
+PASS: cleaned_exact_duplicates_as_expected
+PASS: missing_values_match_only_blank_normalization
+PASS: no_whitespace_remains_in_text_fields
+PASS: dtypes_preserved
+PASS: identifier_value_frequencies_preserved
+PASS: canonical_rows_round_trip_through_csv
+
+[coupon.csv -> coupon_cleaned.csv]
+Source rows: 124,548; cleaned rows: 119,384; removed exact rows: 5,164.
+Source duplicate rows (Phase 2): 5,164; cleaned duplicate rows: 0.
+PASS: file_readable_and_expected_columns
+PASS: source_rows_match_phase2_profile
+PASS: source_duplicates_reconciled_to_removed_and_remaining
+PASS: cleaned_row_count_reconciled
+PASS: cleaned_exact_duplicates_as_expected
+PASS: missing_values_match_only_blank_normalization
+PASS: no_whitespace_remains_in_text_fields
+PASS: dtypes_preserved
+PASS: identifier_value_frequencies_preserved
+PASS: canonical_rows_round_trip_through_csv
+
+[coupon_redempt.csv -> coupon_redempt_cleaned.csv]
+Source rows: 2,318; cleaned rows: 2,318; removed exact rows: 0.
+Source duplicate rows (Phase 2): 0; cleaned duplicate rows: 0.
+PASS: file_readable_and_expected_columns
+PASS: source_rows_match_phase2_profile
+PASS: source_duplicates_reconciled_to_removed_and_remaining
+PASS: cleaned_row_count_reconciled
+PASS: cleaned_exact_duplicates_as_expected
+PASS: missing_values_match_only_blank_normalization
+PASS: no_whitespace_remains_in_text_fields
+PASS: dtypes_preserved
+PASS: identifier_value_frequencies_preserved
+PASS: canonical_rows_round_trip_through_csv
+
+[hh_demographic.csv -> hh_demographic_cleaned.csv]
+Source rows: 801; cleaned rows: 801; removed exact rows: 0.
+Source duplicate rows (Phase 2): 0; cleaned duplicate rows: 0.
+PASS: file_readable_and_expected_columns
+PASS: source_rows_match_phase2_profile
+PASS: source_duplicates_reconciled_to_removed_and_remaining
+PASS: cleaned_row_count_reconciled
+PASS: cleaned_exact_duplicates_as_expected
+PASS: missing_values_match_only_blank_normalization
+PASS: no_whitespace_remains_in_text_fields
+PASS: dtypes_preserved
+PASS: identifier_value_frequencies_preserved
+PASS: canonical_rows_round_trip_through_csv
+
+[product.csv -> product_cleaned.csv]
+Source rows: 92,353; cleaned rows: 92,353; removed exact rows: 0.
+Source duplicate rows (Phase 2): 0; cleaned duplicate rows: 0.
+PASS: file_readable_and_expected_columns
+PASS: source_rows_match_phase2_profile
+PASS: source_duplicates_reconciled_to_removed_and_remaining
+PASS: cleaned_row_count_reconciled
+PASS: cleaned_exact_duplicates_as_expected
+PASS: missing_values_match_only_blank_normalization
+PASS: no_whitespace_remains_in_text_fields
+PASS: dtypes_preserved
+PASS: identifier_value_frequencies_preserved
+PASS: canonical_rows_round_trip_through_csv
+
+[transaction_data.csv -> transaction_data_cleaned.csv]
+Source rows: 2,595,732; cleaned rows: 2,595,732; removed exact rows: 0.
+Source duplicate rows (Phase 2): 0; cleaned duplicate rows: 0.
+PASS: file_readable_and_expected_columns
+PASS: source_rows_match_phase2_profile
+PASS: source_duplicates_reconciled_to_removed_and_remaining
+PASS: cleaned_row_count_reconciled
+PASS: cleaned_exact_duplicates_as_expected
+PASS: missing_values_match_only_blank_normalization
+PASS: no_whitespace_remains_in_text_fields
+PASS: dtypes_preserved
+PASS: identifier_value_frequencies_preserved
+PASS: canonical_rows_round_trip_through_csv
+PASS: trans_time_text_preserved_from_raw
+TRANS_TIME source format profile: 2,595,732 rows; 2,595,732 four-digit values; 165,055 begin with zero; 2,595,732 within HH/MM numeric ranges; 0 outside that shape/range.
+
+Missing/blank checks
+--------------------
+product.csv.COMMODITY_DESC: source parser nulls 0; source blank/whitespace 15; cleaned missing cells 15.
+product.csv.CURR_SIZE_OF_PRODUCT: source parser nulls 0; source blank/whitespace 30,607; cleaned missing cells 30,607.
+product.csv.DEPARTMENT: source parser nulls 0; source blank/whitespace 15; cleaned missing cells 15.
+product.csv.SUB_COMMODITY_DESC: source parser nulls 0; source blank/whitespace 15; cleaned missing cells 15.
+
+Overall status: PASS
+
+Warnings: numeric day/week codes, TRANS_TIME format/meaning, zero values, discount signs, sentinel labels, and unmatched identifiers remain subject to domain confirmation. TRANS_TIME is stored as source text without date/time conversion.
+
+PASS: all_cleaned_outputs_published
