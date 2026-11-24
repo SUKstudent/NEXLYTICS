@@ -1,0 +1,62 @@
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Local datasets and raw data files
+data/*
+!data/.gitkeep
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.xlsx
+*.xls
+*.sqlite
+*.db
+
+# Allow specific generated ML output deliverables to be tracked
+!outputs/anomaly_results.csv
+!outputs/forecast_results.csv
+!outputs/charts/*.png
+
+# Model checkpoints and serialized artifacts
+models/*
+!models/.gitkeep
+*.pkl
+*.pickle
+*.joblib
+*.onnx
+
+# Outputs and generated charts
+outputs/charts/*
+!outputs/charts/.gitkeep
+
+# Testing, coverage, and temporary files
+.pytest_cache/
+.coverage
+htmlcov/
+*.tmp
+*.temp
+*.log
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
