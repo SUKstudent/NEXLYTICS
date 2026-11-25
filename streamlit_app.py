@@ -49,10 +49,6 @@ section[data-testid="stSidebar"] > div {
     padding-top: 1.5rem;
 }
 
-section[data-testid="stSidebar"] * {
-    font-family: 'Inter', sans-serif;
-}
-
 /* Navigation */
 [data-testid="stSidebarNav"] {
     padding-top: 1rem;
