@@ -14,7 +14,7 @@ try:
     df_forecast = pd.read_csv(forecast_path)
     df_anomaly = pd.read_csv(anomaly_path)
     
-    st.success("✅ Successfully loaded Tauz's ML output data.")
+    st.success("Machine learning output data loaded successfully.")
     
     # Tabs for the two models
     tab1, tab2 = st.tabs(["📈 Redemption Forecast", "🚨 Anomaly Detection"])
@@ -44,6 +44,6 @@ try:
             st.plotly_chart(fig_anomaly, use_container_width=True)
 
 except FileNotFoundError:
-    st.error(f"Could not find Tauz's output files. Checked paths:\n- {forecast_path}\n- {anomaly_path}")
+    st.error(f"Could not find ML output files. Checked paths:\n- {forecast_path}\n- {anomaly_path}")
 except Exception as e:
     st.error(f"An error occurred reading the data: {e}")
