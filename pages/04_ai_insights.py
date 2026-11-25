@@ -4,7 +4,7 @@ import plotly.express as px
 import numpy as np
 
 st.title("🧠 AI Decision Intelligence & Simulations")
-st.markdown("Powered by **Naveen's Gen-AI Logic** (Decision Readiness & What-If Analysis)")
+st.markdown("Gen-AI Logic** (Decision Readiness & What-If Analysis)")
 
 # 1. Decision Confidence Passport
 st.markdown("### 🛂 Decision Confidence Passport")
