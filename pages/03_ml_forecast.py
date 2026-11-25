@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 st.title("🤖 Predictive Analytics & Anomaly Detection")
-st.markdown("Powered by **Tauz's ML Models** (Forecasting & Anomaly Detection)")
+st.markdown("Advanced Machine Learning • Forecasting & Anomaly Detection")
 
 # File paths based on your directory structure
 forecast_path = 'Predictive Analytics & ML/outputs/forecast_results.csv'
